@@ -5,6 +5,7 @@ describe('Login', () => {
  
     beforeEach(()=>{
       cy.login()
+      cy.visit('/')
       
 
     })
@@ -16,10 +17,4 @@ describe('Login', () => {
     cy.url().should('be.equal', `${Cypress.config('baseUrl')}/users/sign_in`)
       
   })
-
-
-
-
-
-
 }) 
