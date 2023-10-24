@@ -32,4 +32,20 @@ Cypress.Commands.add('login', (user = Cypress.env('user_name'),password = Cypres
     cy.get('#project_initialize_with_readme').check()
     cy.contains('Create project').click()
 })
+Cypress.Commands.add('criarIssue',(name,title,description)=>{
 
+  // cy.visit(`${Cypress.config('baseUrl')}/${Cypress.env('user_name')}/${name}`)
+  cy.visit(`/${Cypress.env('user_name')}/${name}/issues/new`)
+  // cy.get('.shortcuts-issues').click()
+  // cy.get('#new_issue_link').contains('New issue').click()
+
+  cy.get('#issue_title').type(title)
+  cy.get('#issue_description').type(description)
+  cy.get('input[class="btn btn-success qa-issuable-create-button"]').click()
+
+})
+Cypress.Commands.add('gui_setLabelOnIssue', label => {
+  cy.get('.qa-edit-link-labels').click()
+  cy.contains(label.name).click()
+  cy.get('body').click()
+})

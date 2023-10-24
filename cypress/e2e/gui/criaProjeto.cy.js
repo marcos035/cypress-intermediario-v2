@@ -4,8 +4,9 @@ import {faker} from '@faker-js/faker'
 describe('Testando a funcionalidade de criação de projeto',()=>{
 
     beforeEach(()=>{
+         cy.api_deleteProjects()
         cy.login()
-        cy.visit('/')
+     
     })
 
     it.only('Criando um projeto',function (){
@@ -25,5 +26,5 @@ describe('Testando a funcionalidade de criação de projeto',()=>{
     })
 })
 
-
+      
 
